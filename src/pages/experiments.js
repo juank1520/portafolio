@@ -36,6 +36,13 @@ const experimentsElements = [
         description: 'Es un notebook de jupiter que utilicé para extraer los datos del clima de la página https://www.wunderground.com/history/monthly/LRTR/date',
         link: '',
         repo: 'https://github.com/juank1520/weather-scraper',
+    },
+    {
+        title: 'Tic Tac Toe Minimax',
+        img: gitHubLogo,
+        description: 'Se trata de un juego de totito, la computadora implementa el algoritmo Minimax para determinar la mejor jugada. Está desarrollado en vanilla js y el tablero lo realicé con canvas',
+        link: 'https://juank1520.github.io/TicTacToeMinimax/',
+        repo: 'https://github.com/juank1520/TicTacToeMinimax',
     }
 ];
 
@@ -50,24 +57,48 @@ const experiments = () => {
                 </div>
                 <div class="c-slide__element">
                 
-                    ${experimentsElements.map( item => `
-                       <div class="c-slide-project">
-                            <div class="c-slide-project__thumb-image">
-                                <img src="${item.img}">
-                            </div>
-                            <div class="c-slide-project__body">
-                                <div class="c-slide-project__title">
-                                    <h3>${item.title}</h3>
-                                </div>
-                                <div class="c-slide-project__description">
-                                    <p>${item.description}</p>
-                                </div>
-                                <div class="c-slide-project__links">
-                                    <a class="c-slide-project__button" target="blank" href="${item.repo}">Ir al repositorio</a>
-                                </div>
-                            </div>
-                        </div>
-                    ` ).join('')}
+                    ${experimentsElements.map( item => {
+                        if(item.link !== ""){
+                            return `
+                                <div class="c-slide-project">
+                                        <div class="c-slide-project__thumb-image">
+                                            <img src="${item.img}">
+                                        </div>
+                                        <div class="c-slide-project__body">
+                                            <div class="c-slide-project__title">
+                                                <h3>${item.title}</h3>
+                                            </div>
+                                            <div class="c-slide-project__description">
+                                                <p>${item.description}</p>
+                                            </div>
+                                            <div class="c-slide-project__links">
+                                                <a class="c-slide-project__button" target="blank" href="${item.link}">Ir al proyecto</a>
+                                                <a class="c-slide-project__button" target="blank" href="${item.repo}">Ir al repositorio</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `
+                        }else{
+                            return `
+                                <div class="c-slide-project">
+                                        <div class="c-slide-project__thumb-image">
+                                            <img src="${item.img}">
+                                        </div>
+                                        <div class="c-slide-project__body">
+                                            <div class="c-slide-project__title">
+                                                <h3>${item.title}</h3>
+                                            </div>
+                                            <div class="c-slide-project__description">
+                                                <p>${item.description}</p>
+                                            </div>
+                                            <div class="c-slide-project__links">
+                                                <a class="c-slide-project__button" target="blank" href="${item.repo}">Ir al repositorio</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `
+                        }
+                    }).join('')}
                     
                    
         
